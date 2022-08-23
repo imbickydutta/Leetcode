@@ -4,21 +4,21 @@
  * @return {number}
  */
 var findKthPositive = function(arr, k) {
-    let obj = {};
-    for(let i =1;i<=arr.length+k;i++){
-        obj[i]=0
-    }
-    for(let i=0;i<arr.length;i++){
-        obj[arr[i]]++
+    if(arr[0] > k){
+        return k
     }
     
-    let count = 0;
-    for(let key in obj){
-        if(obj[key] == 0){
-            count++
-            if(count==k){
-                return +key
-            }
+    let count = k+1-arr[0];
+    
+    for(let i=1;i<arr.length;i++){
+        if((arr[i] - arr[i-1]) <= count){
+            console.log(arr[i] - arr[i-1], count)
+            count-= arr[i] - (arr[i-1] + 1)
+        } else {
+            console.log("hello")
+           return (arr[i] - ((arr[i] - arr[i-1])-count)) 
         }
     }
+    console.log(arr[arr.length-1] + count)
+    return arr[arr.length-1] + count
 };
