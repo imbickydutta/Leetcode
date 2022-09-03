@@ -5,7 +5,6 @@
 var containsDuplicate = function(nums) {
     let obj = {};
     for(let num of nums){
-        console.log(obj[num])
         if (obj[num]){
             return true
         } else {
