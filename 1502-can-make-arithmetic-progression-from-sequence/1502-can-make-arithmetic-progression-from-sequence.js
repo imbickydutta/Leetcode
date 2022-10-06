@@ -3,10 +3,13 @@
  * @return {boolean}
  */
 var canMakeArithmeticProgression = function(arr) {
-    arr.sort((a,b)=>a-b);
-    let diff = arr[1] - arr[0];
-    for(let i=0;i<arr.length-1;i++){
-        if(arr[i+1] -arr[i] != diff) return false
+    arr = arr.sort((a,b)=> a - b)
+    if(arr.length <= 2) return true;
+    
+    let diff = arr[0] - arr[1];
+    
+    for(let i=1;i<arr.length-1;i++){
+        if(arr[i] - arr[i+1] != diff) return false
     }
-    return true
+    return true;
 };
