@@ -4,23 +4,23 @@
  * @return {boolean}
  */
 var isAnagram = function(s, t) {
-    let map1 = {};
-    
+    let obj = {};
+    //step 1
     for(let el of s){
-        map1[el] = map1[el] + 1 || 1
+        obj[el] = obj[el] + 1 || 1;
     }
-    
+    //step 2
     for(let el of t){
-        if(map1[el]){
-            map1[el]--
+        if(obj[el]){
+            obj[el]--
         } else {
-            return false;
+            return false
         }
     }
-    console.log(map1)
-    for(let k in map1){
-        if(map1[k] > 0) return false
-        
+    
+    for(let key in obj){
+        if(obj[key] > 0) return false
     }
-    return true
+    
+    return true; 
 };
